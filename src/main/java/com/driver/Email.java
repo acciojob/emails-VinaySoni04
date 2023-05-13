@@ -19,7 +19,7 @@ public class Email {
     }
 
     public void changePassword(String oldPassword, String newPassword){
-        //Change password only if the oldPassword is equal to current password and the new password meets all of the following:
+        //Change password only if the oldPassword is equal to current password and the new password meets all the following:
         // 1. It contains at least 8 characters
         // 2. It contains at least one uppercase letter
         // 3. It contains at least one lowercase letter
@@ -28,27 +28,27 @@ public class Email {
         if (oldPassword.equals(this.password) && isValidPassword(newPassword)) {
             this.password = newPassword;
         }
-        private boolean isValidPassword(String password) {
-            boolean hasUpperCase = false;
-            boolean hasLowerCase = false;
-            boolean hasDigit = false;
-            boolean hasSpecialChar = false;
-            if (password.length() < 8) {
-                return false;
-            }
-            for (int i = 0; i < password.length(); i++) {
-                char c = password.charAt(i);
-                if (Character.isUpperCase(c)) {
-                    hasUpperCase = true;
-                } else if (Character.isLowerCase(c)) {
-                    hasLowerCase = true;
-                } else if (Character.isDigit(c)) {
-                    hasDigit = true;
-                } else {
-                    hasSpecialChar = true;
-                }
-            }
-            return hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar;
+    }
+    private boolean isValidPassword(String password) {
+        boolean hasUpperCase = false;
+        boolean hasLowerCase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+        if (password.length() < 8) {
+            return false;
         }
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isUpperCase(c)) {
+                hasUpperCase = true;
+            } else if (Character.isLowerCase(c)) {
+                hasLowerCase = true;
+            } else if (Character.isDigit(c)) {
+                hasDigit = true;
+            } else {
+                hasSpecialChar = true;
+            }
+        }
+        return hasUpperCase && hasLowerCase && hasDigit && hasSpecialChar;
     }
 }
